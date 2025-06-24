@@ -116,6 +116,8 @@ alias pacman="sudo pacman"
 
 alias c=clear
 
+alias java=java -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+
 chpwd() {
 	if [[ "$PWD" = "$HOME"* ]]; then
 		homeeza

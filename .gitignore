@@ -1,0 +1,17 @@
+discord/*
+GitKraken/*
+kde.org/*
+autostart/*
+dolphinrc
+filelightrc
+mimeapps.list
+dconf/*
+go/*
+pulse/*
+session/*
+unity3d/*
+user-dirs.dirs
+user-dirs.locale
+.zsh_history
+.zcompdump*
+gh/hosts.yml
