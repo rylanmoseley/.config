@@ -7,7 +7,7 @@ PACMANLIST=""
 while read line || [[ -n $line ]];
 do
 	PACMANLIST+=" ${line% *}"
-done <explicitpackages.txt
+done <pacmanpackages.txt
 pacman -Syu PACMANLIST
 
 YAYLIST=""
@@ -15,7 +15,7 @@ while read line || [[ -n $line ]];
 do
 	YAYLIST+=" ${line% *}"
 done <aurpackages.txt
-yay YAYLIST
+Xyay YAYLIST
 
 ./updatelists.sh
 
