@@ -1,7 +1,8 @@
 #!/bin/bash
 
 git pull
-OLDPACKAGES="$(cat allpackages.txt)"
+rm allpackages.old
+mv allpackages.txt allpackages.old
 
 PACMANLIST=""
 while read line || [[ -n $line ]];
@@ -15,8 +16,8 @@ while read line || [[ -n $line ]];
 do
 	YAYLIST+=" ${line% *}"
 done <aurpackages.txt
-Xyay YAYLIST
+yay YAYLIST
 
 ./updatelists.sh
 
-diff <($OLDPACKAGES) allpackages.txt
+diff --color=always allpackages.old allpackages.txt
