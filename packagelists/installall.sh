@@ -19,4 +19,4 @@ yay YAYLIST
 
 ./updatelists.sh
 
-diff <(OLDPACKAGES) allpackages.txt
+diff <($OLDPACKAGES) allpackages.txt
