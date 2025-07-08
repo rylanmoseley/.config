@@ -1,0 +1,13 @@
+# This lives in /usr/share/libalpm/hooks
+# and updates the package lists in the git repo
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+When = PostTransaction
+Exec = /home/rylan/.config/packagelists/updatelists.sh
