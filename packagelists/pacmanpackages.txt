@@ -39,6 +39,7 @@ qt6ct 0.10-4
 rofi-calc 2.4.0-1
 rofi-wayland 1.7.9.1-1
 scdoc 1.11.3-1
+sl 5.05-5
 ttf-0xproto-nerd 3.4.0-1
 ttf-roboto-mono 3.000-3
 waybar 0.13.0-3
