@@ -9,7 +9,7 @@ while read line || [[ -n $line ]];
 do
 	PACMANLIST+=" ${line% *}"
 done <pacmanpackages.txt
-sudo pacman -Syu PACMANLIST
+sudo pacman -Syu $PACMANLIST
 
 YAYLIST=""
 while read line || [[ -n $line ]];
