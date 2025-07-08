@@ -1,6 +1,0 @@
-asdf-vm 0.17.0-1
-asdf-vm-debug 0.17.0-1
-neofetch 7.1.0-2
-yay 12.5.0-1
-yay-debug 12.5.0-1
-zen-browser-bin 1.13.1b-1
