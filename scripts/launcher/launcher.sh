@@ -3,7 +3,7 @@
 launchers=("tty")
 echo "[0] tty"
 i=1
-for file in ~/.config/launcher/*; do
+for file in ~/.config/scripts/launcher/launchscripts/*; do
 	if [[ "${file##*/}" != ${0##*/} ]]; then
 		filename="${file##*/}"
 		echo "[$i] ${filename%.sh}"
