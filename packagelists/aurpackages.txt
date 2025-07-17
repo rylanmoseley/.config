@@ -1,6 +1,7 @@
 asdf-vm 0.18.0-1
 asdf-vm-debug 0.18.0-1
 neofetch 7.1.0-2
+visual-studio-code-bin 1.102.1-1
 yay 12.5.0-1
 yay-debug 12.5.0-1
 zen-browser-bin 1.14.5b-1

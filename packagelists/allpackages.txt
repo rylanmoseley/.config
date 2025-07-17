@@ -153,10 +153,12 @@ htop 3.4.1-1
 hwdata 0.397-1
 hyprcursor 0.1.12-4
 hyprgraphics 0.1.5-1
+hypridle 0.1.6-6
 hyprland 0.50.0-1
 hyprland-qt-support 0.1.0-7
 hyprland-qtutils 0.1.4-3
 hyprlang 0.6.3-2
+hyprlock 0.8.2-3
 hyprpaper 0.7.5-3
 hyprpicker 0.4.5-4
 hyprpolkitagent 0.1.2-8
@@ -672,6 +674,7 @@ util-linux-libs 2.41.1-1
 v4l-utils 1.30.1-1
 vapoursynth R70-2
 vid.stab 1.1.1-2
+visual-studio-code-bin 1.102.1-1
 vlc 3.0.21-26
 vlc-cli 3.0.21-26
 vlc-gui-qt 3.0.21-26
