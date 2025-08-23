@@ -1,0 +1,35 @@
+# ~/.config/mako/config
+
+# General settings
+font=SauceCodePro Nerd Font 10
+layer=overlay
+anchor=top-right
+sort=-time
+default-timeout=10000
+
+# Appearance
+width=300
+height=100
+margin=10
+padding=10
+border-size=1
+border-radius=10
+icons=true
+max-visible=5
+
+# Colors
+background-color=#1e1e2e
+text-color=#cdd6f4
+
+# Urgency Levels
+[urgency=low]
+border-color=#89b4fa
+text-color=#89b4fa
+
+[urgency=normal]
+border-color=#313244
+
+[urgency=critical]
+border-color=#f38ba8
+text-color=#f38ba8
+default-timeout=18000

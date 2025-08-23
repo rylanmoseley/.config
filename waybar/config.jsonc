@@ -1,109 +1,124 @@
-// -*- mode: jsonc -*-
+// ~/.config/waybar/config.jsonc
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 4,
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "margin-left": 4,
+    "margin-right": 4,
     "reload_style_on_change": true,
-    // Choose the order of the modules
     "modules-left": [
+        "custom/launcher",
         "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-center": [],
     "modules-right": [
+        "tray",
+        "custom/pacman",
         "pulseaudio",
         "network",
-	"custom/pacman",
+        "cpu",
+        "memory",
         "battery",
         "clock",
         "custom/power"
     ],
     // Modules configuration
     "hyprland/workspaces": {
-	"disable-scroll": true,
-	"all-outputs": true,
-	"warp-on-scroll": false,
-	"format": "{id} {icon} ",
-	"format-icons": {
-	//"1": "",
-	//"2": "",
-	//"3": "",
-	//"4": "",
-	//"5": "",
-            "active": "",
-	    "special": "",
-	    "default": "",
-	},
-	"window-rewrite-default": "",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{id} {icon}", // Show workspace number and icon
+        "tooltip": true, // Enable tooltip to show window list on hover
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "window-rewrite-default": "-"
+    },
+    "custom/launcher": {
+        "format": "{}",
+        "exec": "echo \"{\\\"text\\\": \\\"  $(whoami)@$(hostname)\\\"}\"",
+        "return-type": "json",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-	"format": "{:%I:%M %p, %a %b %d}",
-        "tooltip-format": "<big>{:%D}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%I:%M %p, %a %b %d}", // Your preferred format
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true,
+        "on-click": "kitty -e htop"
+    },
+    "memory": {
+        "format": " {}%",
+        "tooltip": true,
+        "tooltip-format": "RAM: {used:0.1f}GB / {total:0.1f}GB",
+        "on-click": "kitty -e htop"
     },
     "battery": {
-	"interval": 30,
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-	"tooltip-format": "Drawing {power} W, {timeTo}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "⚠ Disconnected",
         "tooltip-format": "{essid} at {frequency} GHz on {ifname}\n {bandwidthUpBits},  {bandwidthDownBits}",
-        "format-disconnected": "⚠",
-	"on-click": "nm-connection-editor"
+        "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " ",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-muted": " Muted",
+        "on-click": "pavucontrol",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+            "default": ["", ""]
+        }
+    },
+    "custom/pacman": {
+        "format": "{text} 󰮯",
+        "interval": 1800,
+        "return-type": "json",
+        "tooltip": true,
+        "exec": "~/.config/waybar/pacman_update.sh",
+        "on-click": "kitty -e sudo pacman -Syu",
+        "signal": 4
     },
     "custom/power": {
-        "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
-    },
-	"custom/pacman": {
-		"format": "{text} 󰮯",
-		"interval": 1800,
-		"return-type": "json",
-		"tooltip": true,
-		"exec": "~/.config/waybar/pacman_update.sh",
-		"signal": 4
-	}	
+        "format": "",
+        "on-click": "sh -c 'chosen=$(printf \" shutdown\\n reboot\\n logout\" | rofi -dmenu -p \"power\"); case \"$chosen\" in \" shutdown\") shutdown now ;; \" reboot\") reboot ;; \" logout\") hyprctl dispatch exit ;; esac'",
+        "tooltip": false
+    }
 }

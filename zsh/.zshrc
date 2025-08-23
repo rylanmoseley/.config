@@ -136,6 +136,47 @@ chpwd() {
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
+# smart_cat: A function that acts like 'cat', but displays images using 'kitten icat'.
+# It checks the MIME type of a file. If it's an image, it uses 'kitten icat'.
+# Otherwise, it defaults to the standard 'cat' command.
+
+smart_cat() {
+  # Check if at least one argument (file) is provided.
+  if [ $# -eq 0 ]; then
+    # If no files are given, just run the original cat command to handle standard input.
+    command cat
+    return
+  fi
+
+  # Loop through all the files provided as arguments.
+  for file in "$@"; do
+    # Check if the argument is a regular file that exists.
+    if [ -f "$file" ]; then
+      # Get the file's MIME type (e.g., "image/png", "text/plain").
+      # The 'case' statement is a clean way to check if the type starts with "image/".
+      case "$(file --brief --mime-type "$file")" in
+        image/*)
+          # If it's an image, display it with kitten icat.
+          kitten icat "$file"
+          ;;
+        *)
+          # For any other file type, use the original cat command.
+          # 'command cat' is used to bypass our own alias and prevent a recursive loop.
+          command cat "$file"
+          ;;
+      esac
+    else
+      # If the argument is not a file (e.g., a directory or it doesn't exist),
+      # let the original cat command handle it and display the appropriate error.
+      command cat "$file"
+    fi
+  done
+}
+
+# Alias the 'cat' command to our new 'smart_cat' function.
+# Now, whenever you type 'cat', this function will run instead.
+alias cat='smart_cat'
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
