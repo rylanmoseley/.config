@@ -23,7 +23,8 @@ window#waybar {
 #window,
 #custom-launcher,
 #custom-power,
-#custom-pacman {
+#custom-pacman,
+#battery {
     background-color: #1e1e2e;
     padding: 2px 12px;
     margin: 4px 4px;
@@ -59,6 +60,14 @@ window#waybar {
 #custom-launcher {
     color: #89b4fa;
     padding-right: 15px;
+}
+
+#custom-launcher .logo {
+    font-size: 18px;
+}
+
+#custom-launcher .user-host {
+    font-size: 12px;
 }
 
 #custom-power {
