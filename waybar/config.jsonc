@@ -87,11 +87,11 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "format-wifi": "{signalStrength}% ",
-        "format-ethernet": "󰈀",
+        "format-wifi": "{essid} {signalStrength}% ",
+        "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "⚠ Disconnected",
-        "tooltip-format": "{essid} at {frequency} GHz on {ifname}\n {bandwidthUpBits},  {bandwidthDownBits}",
-        "on-click": "nm-connection-editor"
+        "tooltip-format": "{ifname}\n {bandwidthUpBits},  {bandwidthDownBits}",
+        "on-click": "kitty -e nmtui"
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
@@ -113,7 +113,7 @@
         "return-type": "json",
         "tooltip": true,
         "exec": "~/.config/waybar/pacman_update.sh",
-        "on-click": "kitty -e sudo pacman -Syu",
+        "on-click": "kitty -e yay",
         "signal": 4
     },
     "custom/power": {
