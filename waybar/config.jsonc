@@ -88,7 +88,7 @@
     },
     "network": {
         "format-wifi": "{signalStrength}% ",
-        "format-ethernet": "󰈀 Connected",
+        "format-ethernet": "󰈀",
         "format-disconnected": "⚠ Disconnected",
         "tooltip-format": "{essid} at {frequency} GHz on {ifname}\n {bandwidthUpBits},  {bandwidthDownBits}",
         "on-click": "nm-connection-editor"
