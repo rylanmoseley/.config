@@ -31,14 +31,10 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
+	"move-to-monitor": true,
         "format": "{id} {icon}", // Show workspace number and icon
         "tooltip": true, // Enable tooltip to show window list on hover
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
             "urgent": "",
             "focused": "",
             "default": ""

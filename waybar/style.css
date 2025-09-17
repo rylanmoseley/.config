@@ -35,7 +35,7 @@ window#waybar {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #6c7086;
+    color: #7f849c;
 }
 
 #workspaces button.active {
@@ -55,6 +55,10 @@ window#waybar {
 
 #workspaces button.urgent {
     color: #f38ba8;
+}
+
+#workspaces button:not(.hosting-monitor) {
+    color: #45475a;
 }
 
 #custom-launcher {
