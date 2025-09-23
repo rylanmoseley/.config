@@ -35,9 +35,9 @@
         "format": "{id} {icon}", // Show workspace number and icon
         "tooltip": true, // Enable tooltip to show window list on hover
         "format-icons": {
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            "urgent": " ",
+            "focused": " ",
+            "default": " "
         }
     },
     "hyprland/window": {
@@ -94,17 +94,17 @@
         "format-muted": " Muted",
         "on-click": "pavucontrol",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " "]
         }
     },
     "custom/pacman": {
-        "format": "{text} 󰮯",
+        "format": "{text} 󰮯 ",
         "interval": 1800,
         "return-type": "json",
         "tooltip": true,
