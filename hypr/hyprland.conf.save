@@ -23,6 +23,7 @@
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 monitor=eDP-1,preferred,auto,1
+
 monitor=,preferred,auto,auto
 
 
@@ -229,7 +230,6 @@ bind = $mainMod, B, exec, $browser
 bind = $mainMod, A, exec, killall waybar || waybar
 bind = $mainMod, S, exec, hyprshot -m region -zs -o ~/Pictures/Screenshots
 bind = $mainMod, L, exec, hyprlock
-bind = $mainMod, G, settiled
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l
