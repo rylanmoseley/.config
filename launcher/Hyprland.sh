@@ -1,3 +1,3 @@
 #!/bin/bash
 
-Hyprland
+start-hyprland
