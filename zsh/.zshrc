@@ -87,6 +87,8 @@ export FPATH="~/Programs/eza/completions/zsh:$FPATH"
 
 export HYPRSHOT_DIR=~/Pictures/Screenshots
 
+export QT_QPA_PLATFORM=xcb
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -176,6 +178,8 @@ smart_cat() {
 # Alias the 'cat' command to our new 'smart_cat' function.
 # Now, whenever you type 'cat', this function will run instead.
 alias cat='smart_cat'
+
+alias ssh='kitty +kitten ssh'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
